@@ -3,17 +3,17 @@ import 'package:interview_answers_app/config/constants.dart';
 import 'package:interview_answers_app/features/subjects/app/widgets/subjects_item_widget.dart';
 
 class SubjectsWidget extends StatelessWidget {
-  final subjectsData = [
+  static const subjectsData = [
     {
       'title': 'Flutter',
-      'iconSvgPath': Constants.flutterIconPath,
+      'iconSvgPath': Constants.assetPathFlutterIcon,
       'iconData': null,
       'percent': 10,
       'lastDate': 'yesterday',
     },
     {
       'title': 'Dart',
-      'iconSvgPath': Constants.dartIconPath,
+      'iconSvgPath': Constants.assetPathDartIcon,
       'iconData': null,
       'percent': 50,
       'lastDate': 'today',
@@ -34,12 +34,12 @@ class SubjectsWidget extends StatelessWidget {
     },
   ];
 
-  SubjectsWidget({Key? key}) : super(key: key);
+  const SubjectsWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ListView(
-      padding: const EdgeInsets.all(18),
+      padding: const EdgeInsets.all(Constants.screenHorizontalPadding),
       children: [
         for (final subject in subjectsData)
           SubjectsItemWidget(

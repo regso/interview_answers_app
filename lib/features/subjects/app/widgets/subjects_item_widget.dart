@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:interview_answers_app/config/constants.dart';
 import 'package:interview_answers_app/config/main_theme_colors.dart';
+import 'package:interview_answers_app/features/questions/app/screens/questions_screen.dart';
 import 'package:interview_answers_app/features/subjects/app/widgets/list_icon_widget.dart';
 
 class SubjectsItemWidget extends StatelessWidget {
@@ -20,56 +22,72 @@ class SubjectsItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(20),
-      margin: const EdgeInsets.only(bottom: 20),
-      height: 90,
-      decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(Radius.circular(12)),
-        border: Border.all(
-          color: MainThemeColors.secondaryBackground,
-          width: 2,
+    return InkWell(
+      borderRadius: const BorderRadius.all(
+        Radius.circular(
+          Constants.cardRadius,
         ),
       ),
-      child: Row(
-        children: [
-          Container(
-            margin: const EdgeInsets.only(right: 15),
-            child: ListIconWidget(iconSvgPath: iconSvgPath, iconData: iconData),
-          ),
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: TextStyle(
-                    color: MainThemeColors.mainText,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(
-                  lastDate,
-                  style: TextStyle(
-                    color: MainThemeColors.secondaryText,
-                  ),
-                ),
-              ],
+      onTap: () => Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (BuildContext context) => const QuestionsScreen(),
+        ),
+      ),
+      child: Container(
+        height: Constants.cardHeight,
+        decoration: BoxDecoration(
+          borderRadius: const BorderRadius.all(
+            Radius.circular(
+              Constants.cardRadius,
             ),
           ),
-          SizedBox(
-            width: 38,
-            height: 38,
-            child: Center(
-              child: Text(
-                '$percent%',
-                style: TextStyle(fontSize: 14, color: MainThemeColors.mainText),
+          border: Border.all(
+            color: MainThemeColors.secondaryBackground,
+            width: 2,
+          ),
+        ),
+        child: Row(
+          children: [
+            const SizedBox(width: Constants.screenHorizontalPadding),
+            ListIconWidget(iconSvgPath: iconSvgPath, iconData: iconData),
+            const SizedBox(width: Constants.screenHorizontalPadding),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: TextStyle(
+                      color: MainThemeColors.mainText,
+                      fontSize: Constants.cardTitleSize,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    lastDate,
+                    style: TextStyle(
+                      color: MainThemeColors.secondaryText,
+                      fontSize: Constants.cardSubtitleSize,
+                    ),
+                  ),
+                ],
               ),
             ),
-          ),
-        ],
+            SizedBox(
+              width: Constants.cardIconHeight,
+              height: Constants.cardIconHeight,
+              child: Center(
+                child: Text(
+                  '$percent%',
+                  style:
+                      TextStyle(fontSize: 14, color: MainThemeColors.mainText),
+                ),
+              ),
+            ),
+            const SizedBox(width: Constants.screenHorizontalPadding),
+          ],
+        ),
       ),
     );
   }

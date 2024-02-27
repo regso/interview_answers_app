@@ -13,7 +13,10 @@ class QuestionsScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Questions'),
         centerTitle: true,
-        leading: const Icon(Icons.arrow_back_ios_sharp),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_sharp),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
       ),
       body: SafeArea(
         child: Container(

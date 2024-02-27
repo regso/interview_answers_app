@@ -41,7 +41,7 @@ class SubjectsWidget extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.all(Constants.screenHorizontalPadding),
       children: [
-        for (final subject in subjectsData)
+        for (final subject in subjectsData) ...[
           SubjectsItemWidget(
             title: subject['title'] as String,
             iconSvgPath: subject['iconSvgPath'] as String?,
@@ -49,6 +49,8 @@ class SubjectsWidget extends StatelessWidget {
             percent: subject['percent'] as int,
             lastDate: subject['lastDate'] as String,
           ),
+          const SizedBox(height: Constants.screenHorizontalPadding),
+        ],
       ],
     );
   }

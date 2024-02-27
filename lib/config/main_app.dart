@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:interview_answers_app/features/questions/app/screens/questions_screen.dart';
+import 'package:interview_answers_app/features/subjects/app/screens/subjects_screen.dart';
 
 class MainApp extends StatelessWidget {
   const MainApp({Key? key}) : super(key: key);
@@ -11,7 +11,7 @@ class MainApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: const QuestionsScreen(),
+      home: const SubjectsScreen(),
     );
   }
 }

@@ -5,8 +5,10 @@ class Constants {
 
   static const double screenHorizontalPadding = 18;
   static const double cardHeight = 80;
-  static const double cardIconHeight = 40
-  ;
+  static const double cardIconHeight = 40;
+  static const double cardTitleSize = 16;
+  static const double cardSubtitleSize = 14;
+
   static const double boxRadius = 22;
   static const double cardRadius = 18;
   static const double cardIconRadius = 12;

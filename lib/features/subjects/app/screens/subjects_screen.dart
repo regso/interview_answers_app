@@ -9,12 +9,15 @@ class SubjectsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Interview Answers',
           style: TextStyle(color: MainThemeColors.mainText),
         ),
         centerTitle: true,
-        leading: Icon(Icons.menu, color: MainThemeColors.mainText),
+        leading: const Icon(
+          Icons.menu,
+          color: MainThemeColors.mainText,
+        ),
       ),
       body: const SafeArea(
         child: SubjectsWidget(),

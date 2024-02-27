@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class MainThemeColors {
-  static Color mainText = const Color(0xFF4B5B70);
-  static Color secondaryText = const Color(0xFF8E9CAC);
+  static const Color mainText = Color(0xFF4B5B70);
+  static const Color secondaryText = Color(0xFF8E9CAC);
 
-  static Color mainBackground = const Color(0xFFFFFFFF);
-  static Color secondaryBackground = const Color(0xFFE6EAEF);
+  static const Color mainBackground = Color(0xFFFFFFFF);
+  static const Color secondaryBackground = Color(0xFFE6EAEF);
 
-  static Color accent = const Color(0xFFEA6161);
+  static const Color accent = Color(0xFFEA6161);
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:interview_answers_app/config/constants.dart';
+import 'package:interview_answers_app/config/main_theme_colors.dart';
+import 'package:interview_answers_app/features/answer/app/widgets/answer_widget.dart';
 
 class AnswerScreen extends StatelessWidget {
   const AnswerScreen({super.key});
@@ -8,17 +10,19 @@ class AnswerScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Answer'),
-        centerTitle: true,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_sharp),
+          icon: const Icon(
+            Icons.arrow_back_ios_sharp,
+            color: MainThemeColors.mainText,
+          ),
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
       body: SafeArea(
         child: Container(
+          width: double.infinity,
           padding: const EdgeInsets.all(Constants.screenHorizontalPadding),
-          child: const Text('answer'),
+          child: const AnswerWidget(),
         ),
       ),
     );

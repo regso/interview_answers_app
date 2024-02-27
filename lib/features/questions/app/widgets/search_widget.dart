@@ -3,7 +3,7 @@ import 'package:interview_answers_app/config/constants.dart';
 import 'package:interview_answers_app/config/main_theme_colors.dart';
 
 class SearchWidget extends StatelessWidget {
-  const SearchWidget({Key? key}) : super(key: key);
+  const SearchWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

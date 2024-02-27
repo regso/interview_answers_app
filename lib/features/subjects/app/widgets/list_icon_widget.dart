@@ -8,10 +8,10 @@ class ListIconWidget extends StatelessWidget {
   final IconData? iconData;
 
   const ListIconWidget({
-    Key? key,
+    super.key,
     this.iconSvgPath,
     this.iconData,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

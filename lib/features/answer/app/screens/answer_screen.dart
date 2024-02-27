@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:interview_answers_app/config/constants.dart';
 
 class AnswerScreen extends StatelessWidget {
-  const AnswerScreen({Key? key}) : super(key: key);
+  const AnswerScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

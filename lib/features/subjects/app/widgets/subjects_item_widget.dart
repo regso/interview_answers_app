@@ -12,13 +12,13 @@ class SubjectsItemWidget extends StatelessWidget {
   final IconData? iconData;
 
   const SubjectsItemWidget({
-    Key? key,
+    super.key,
     required this.title,
     required this.percent,
     required this.lastDate,
     this.iconSvgPath,
     this.iconData,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

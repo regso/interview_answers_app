@@ -3,7 +3,7 @@ import 'package:interview_answers_app/config/labels.dart';
 import 'package:interview_answers_app/config/main_theme_colors.dart';
 
 class SearchDelimiterWidget extends StatelessWidget {
-  const SearchDelimiterWidget({Key? key}) : super(key: key);
+  const SearchDelimiterWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

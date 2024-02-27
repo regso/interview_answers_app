@@ -5,7 +5,7 @@ import 'package:interview_answers_app/features/questions/app/widgets/search_deli
 import 'package:interview_answers_app/features/questions/app/widgets/search_widget.dart';
 
 class QuestionsScreen extends StatelessWidget {
-  const QuestionsScreen({Key? key}) : super(key: key);
+  const QuestionsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

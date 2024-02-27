@@ -34,7 +34,7 @@ class SubjectsWidget extends StatelessWidget {
     },
   ];
 
-  const SubjectsWidget({Key? key}) : super(key: key);
+  const SubjectsWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -17,7 +17,7 @@ class QuestionsWidget extends StatelessWidget {
     },
   ];
 
-  const QuestionsWidget({Key? key}) : super(key: key);
+  const QuestionsWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

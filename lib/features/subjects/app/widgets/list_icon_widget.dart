@@ -22,8 +22,8 @@ class ListIconWidget extends StatelessWidget {
             child: SvgPicture.asset(iconSvgPath!),
           )
         : Container(
-            decoration: BoxDecoration(
-              borderRadius: const BorderRadius.all(
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(
                 Radius.circular(
                   Constants.cardIconRadius,
                 ),

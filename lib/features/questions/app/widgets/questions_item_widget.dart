@@ -22,7 +22,7 @@ class QuestionsItemWidget extends StatelessWidget {
         ),
       ),
       child: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           border: Border(
             bottom: BorderSide(
               color: MainThemeColors.secondaryBackground,
@@ -40,7 +40,7 @@ class QuestionsItemWidget extends StatelessWidget {
               width: Constants.cardIconHeight,
               height: Constants.cardIconHeight,
               padding: const EdgeInsets.only(top: 1),
-              child: Center(
+              child: const Center(
                 child: Text(
                   '12',
                   style: TextStyle(
@@ -59,7 +59,7 @@ class QuestionsItemWidget extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: MainThemeColors.mainText,
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -67,7 +67,7 @@ class QuestionsItemWidget extends StatelessWidget {
                   ),
                   Text(
                     lastDate,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: MainThemeColors.secondaryText,
                       fontSize: 14,
                     ),
@@ -78,7 +78,7 @@ class QuestionsItemWidget extends StatelessWidget {
             Container(
               alignment: AlignmentDirectional.centerEnd,
               width: 30,
-              child: Icon(
+              child: const Icon(
                 Icons.arrow_forward_ios_sharp,
                 size: 18,
                 color: MainThemeColors.mainText,

@@ -12,11 +12,11 @@ class SearchWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 20),
       child: Row(
         children: [
-          Expanded(
+          const Expanded(
             child: TextField(
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
-                  borderRadius: const BorderRadius.all(
+                  borderRadius: BorderRadius.all(
                     Radius.circular(Constants.cardIconRadius),
                   ),
                   borderSide: BorderSide(
@@ -25,7 +25,7 @@ class SearchWidget extends StatelessWidget {
                   ),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderRadius: const BorderRadius.all(
+                  borderRadius: BorderRadius.all(
                     Radius.circular(Constants.cardIconRadius),
                   ),
                   borderSide: BorderSide(
@@ -33,20 +33,20 @@ class SearchWidget extends StatelessWidget {
                     width: 2,
                   ),
                 ),
-                contentPadding: const EdgeInsets.symmetric(
+                contentPadding: EdgeInsets.symmetric(
                   vertical: 10,
                   horizontal: 10,
                 ),
                 isDense: true,
-                prefixIcon: const Icon(Icons.search_sharp, size: 24),
+                prefixIcon: Icon(Icons.search_sharp, size: 24),
                 prefixIconColor: MainThemeColors.secondaryBackground,
-                prefixIconConstraints: const BoxConstraints(
+                prefixIconConstraints: BoxConstraints(
                   minWidth: 40,
                   minHeight: 40,
                 ),
-                suffixIcon: const Icon(Icons.highlight_off_sharp, size: 20),
+                suffixIcon: Icon(Icons.highlight_off_sharp, size: 20),
                 suffixIconColor: MainThemeColors.secondaryBackground,
-                suffixIconConstraints: const BoxConstraints(
+                suffixIconConstraints: BoxConstraints(
                   minWidth: 40,
                   minHeight: 40,
                 ),
@@ -59,8 +59,8 @@ class SearchWidget extends StatelessWidget {
           ),
           const SizedBox(width: Constants.screenHorizontalPadding),
           Container(
-            decoration: BoxDecoration(
-              borderRadius: const BorderRadius.all(
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(
                 Radius.circular(
                   Constants.cardIconRadius,
                 ),
@@ -69,7 +69,7 @@ class SearchWidget extends StatelessWidget {
             ),
             width: Constants.cardIconHeight,
             height: Constants.cardIconHeight,
-            child: Icon(
+            child: const Icon(
               Icons.search_sharp,
               color: MainThemeColors.mainBackground,
               size: 28,

@@ -58,7 +58,7 @@ class SubjectsItemWidget extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: MainThemeColors.mainText,
                       fontSize: Constants.cardTitleSize,
                       fontWeight: FontWeight.bold,
@@ -66,7 +66,7 @@ class SubjectsItemWidget extends StatelessWidget {
                   ),
                   Text(
                     lastDate,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: MainThemeColors.secondaryText,
                       fontSize: Constants.cardSubtitleSize,
                     ),
@@ -81,7 +81,7 @@ class SubjectsItemWidget extends StatelessWidget {
                 child: Text(
                   '$percent%',
                   style:
-                      TextStyle(fontSize: 14, color: MainThemeColors.mainText),
+                      const TextStyle(fontSize: 14, color: MainThemeColors.mainText),
                 ),
               ),
             ),

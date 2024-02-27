@@ -11,7 +11,7 @@ class SearchDelimiterWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 20),
       width: double.infinity,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         border: Border(
           top: BorderSide(
             color: MainThemeColors.secondaryBackground,
@@ -19,7 +19,7 @@ class SearchDelimiterWidget extends StatelessWidget {
           ),
         ),
       ),
-      child: Text(
+      child: const Text(
         '${Labels.questionsQuestionsFound}: $count',
         style: TextStyle(
           color: MainThemeColors.mainText,

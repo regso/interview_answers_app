@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:interview_answers_app/config/main_theme_colors.dart';
+import 'package:interview_answers_app/features/subjects/app/bloc/subjects_bloc.dart';
+import 'package:interview_answers_app/features/subjects/app/bloc/subjects_event.dart';
 import 'package:interview_answers_app/features/subjects/app/widgets/subjects_widget.dart';
 
 class SubjectsScreen extends StatelessWidget {
@@ -19,8 +22,13 @@ class SubjectsScreen extends StatelessWidget {
           color: MainThemeColors.mainText,
         ),
       ),
-      body: const SafeArea(
-        child: SubjectsWidget(),
+      body: SafeArea(
+        child: BlocProvider<SubjectsBloc>(
+          create: (BuildContext context) {
+            return SubjectsBloc()..add(const LoadSubjectsEvent());
+          },
+          child: const SubjectsWidget(),
+        ),
       ),
     );
   }

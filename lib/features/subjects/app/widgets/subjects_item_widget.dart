@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:interview_answers_app/config/constants.dart';
 import 'package:interview_answers_app/config/main_theme_colors.dart';
 import 'package:interview_answers_app/features/questions/app/screens/questions_screen.dart';
-import 'package:interview_answers_app/features/subjects/app/widgets/list_icon_widget.dart';
 
 class SubjectsItemWidget extends StatelessWidget {
   final String title;
+  final String icon;
   final int percent;
   final String lastDate;
-  final String? iconSvgPath;
-  final IconData? iconData;
 
   const SubjectsItemWidget({
     super.key,
     required this.title,
+    required this.icon,
     required this.percent,
     required this.lastDate,
-    this.iconSvgPath,
-    this.iconData,
   });
 
   @override
@@ -49,7 +47,11 @@ class SubjectsItemWidget extends StatelessWidget {
         child: Row(
           children: [
             const SizedBox(width: Constants.screenHorizontalPadding),
-            ListIconWidget(iconSvgPath: iconSvgPath, iconData: iconData),
+            SizedBox(
+              width: Constants.cardIconHeight,
+              height: Constants.cardIconHeight,
+              child: SvgPicture.string(icon),
+            ),
             const SizedBox(width: Constants.screenHorizontalPadding),
             Expanded(
               child: Column(
@@ -80,8 +82,8 @@ class SubjectsItemWidget extends StatelessWidget {
               child: Center(
                 child: Text(
                   '$percent%',
-                  style:
-                      const TextStyle(fontSize: 14, color: MainThemeColors.mainText),
+                  style: const TextStyle(
+                      fontSize: 14, color: MainThemeColors.mainText),
                 ),
               ),
             ),

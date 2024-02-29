@@ -1,4 +1,5 @@
 import 'package:interview_answers_app/config/dio.dart';
+import 'package:interview_answers_app/features/answer/domain/use_cases/get_question_use_case.dart';
 import 'package:interview_answers_app/features/questions/data/data_sources/remote_question_data_source.dart';
 import 'package:interview_answers_app/features/questions/data/repositories/question_repository.dart';
 import 'package:interview_answers_app/features/questions/domain/repositories/abstract_question_repository.dart';
@@ -45,5 +46,8 @@ void mainInit() {
   );
   sl.registerLazySingleton(
     () => FindQuestionsUseCase(questionRepository: sl()),
+  );
+  sl.registerLazySingleton(
+    () => GetQuestionUseCase(questionRepository: sl()),
   );
 }

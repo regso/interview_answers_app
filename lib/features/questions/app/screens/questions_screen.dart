@@ -6,7 +6,9 @@ import 'package:interview_answers_app/features/questions/app/bloc/questions_even
 import 'package:interview_answers_app/features/questions/app/widgets/questions_widget.dart';
 
 class QuestionsScreen extends StatelessWidget {
-  const QuestionsScreen({super.key});
+  final int subjectId;
+
+  const QuestionsScreen({super.key, required this.subjectId});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,10 @@ class QuestionsScreen extends StatelessWidget {
       body: SafeArea(
         child: BlocProvider<QuestionsBloc>(
           create: (BuildContext context) {
-            return QuestionsBloc()..add(const LoadQuestionsEvent(subjectId: 1));
+            return QuestionsBloc()
+              ..add(
+                LoadQuestionsEvent(subjectId: subjectId),
+              );
           },
           child: const QuestionsWidget(),
         ),

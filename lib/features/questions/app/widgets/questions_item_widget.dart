@@ -4,11 +4,15 @@ import 'package:interview_answers_app/config/main_theme_colors.dart';
 import 'package:interview_answers_app/features/answer/app/screens/answer_screen.dart';
 
 class QuestionsItemWidget extends StatelessWidget {
+  final int id;
+  final int subjectId;
   final String title;
   final String lastDate;
 
   const QuestionsItemWidget({
     super.key,
+    required this.id,
+    required this.subjectId,
     required this.title,
     required this.lastDate,
   });
@@ -18,7 +22,10 @@ class QuestionsItemWidget extends StatelessWidget {
     return InkWell(
       onTap: () => Navigator.of(context).push(
         MaterialPageRoute(
-          builder: (BuildContext context) => const AnswerScreen(),
+          builder: (BuildContext context) => AnswerScreen(
+            subjectId: subjectId,
+            questionId: id,
+          ),
         ),
       ),
       child: Container(

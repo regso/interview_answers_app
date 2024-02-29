@@ -5,6 +5,7 @@ import 'package:interview_answers_app/config/main_theme_colors.dart';
 import 'package:interview_answers_app/features/questions/app/screens/questions_screen.dart';
 
 class SubjectsItemWidget extends StatelessWidget {
+  final int id;
   final String title;
   final String icon;
   final int percent;
@@ -12,6 +13,7 @@ class SubjectsItemWidget extends StatelessWidget {
 
   const SubjectsItemWidget({
     super.key,
+    required this.id,
     required this.title,
     required this.icon,
     required this.percent,
@@ -28,7 +30,9 @@ class SubjectsItemWidget extends StatelessWidget {
       ),
       onTap: () => Navigator.of(context).push(
         MaterialPageRoute(
-          builder: (BuildContext context) => const QuestionsScreen(),
+          builder: (BuildContext context) => QuestionsScreen(
+            subjectId: id,
+          ),
         ),
       ),
       child: Container(

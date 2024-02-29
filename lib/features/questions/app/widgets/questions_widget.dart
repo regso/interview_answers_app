@@ -33,6 +33,8 @@ class QuestionsWidget extends StatelessWidget {
                 child: ListView(children: [
                   for (final question in state.questions)
                     QuestionsItemWidget(
+                      id: question.id,
+                      subjectId: question.subjectId,
                       title: question.title,
                       lastDate: 'today',
                     ),

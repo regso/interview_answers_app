@@ -3,7 +3,9 @@ import 'package:interview_answers_app/config/labels.dart';
 import 'package:interview_answers_app/config/main_theme_colors.dart';
 
 class AnswerTextWidget extends StatelessWidget {
-  const AnswerTextWidget({super.key});
+  final String answer;
+
+  const AnswerTextWidget({super.key, required this.answer});
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +20,10 @@ class AnswerTextWidget extends StatelessWidget {
         ),
       ),
       width: double.infinity,
-      child: const Column(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
+          const Row(
             children: [
               Text(
                 Labels.answersAnswer,
@@ -38,11 +40,10 @@ class AnswerTextWidget extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Text(
-            'Create beautiful apps faster with Flutter’s collection of '
-            'visual, structural, platform, and interactive widgets.',
-            style: TextStyle(
+            answer,
+            style: const TextStyle(
               fontSize: 16,
               color: MainThemeColors.mainText,
             ),

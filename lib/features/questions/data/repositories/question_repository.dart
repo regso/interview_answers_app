@@ -18,6 +18,7 @@ class QuestionRepository implements AbstractQuestionRepository {
         .map(
           (final item) => QuestionEntity(
             id: item['id'],
+            subjectId: item['subjectId'],
             title: item['title'],
             question: item['question'],
             answer: item['answer'],
@@ -25,5 +26,24 @@ class QuestionRepository implements AbstractQuestionRepository {
           ),
         )
         .toList();
+  }
+
+  @override
+  Future<QuestionEntity> getQuestion({
+    required int subjectId,
+    required int questionId,
+  }) async {
+    final item = await remoteQuestionDataSource.getQuestion(
+      subjectId: subjectId,
+      questionId: questionId,
+    );
+    return QuestionEntity(
+      id: item['id'],
+      subjectId: item['subjectId'],
+      title: item['title'],
+      question: item['question'],
+      answer: item['answer'],
+      difficulty: item['difficulty'],
+    );
   }
 }

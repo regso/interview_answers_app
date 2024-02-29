@@ -26,6 +26,7 @@ class SubjectsWidget extends StatelessWidget {
             children: [
               for (final subject in state.subjects) ...[
                 SubjectsItemWidget(
+                  id: subject.id,
                   title: subject.title,
                   icon: subject.icon,
                   percent: 10,

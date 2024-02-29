@@ -26,7 +26,7 @@ class AnswerTextWidget extends StatelessWidget {
           const Row(
             children: [
               Text(
-                Labels.answersAnswer,
+                Labels.answerAnswer,
                 style: TextStyle(
                   color: MainThemeColors.mainText,
                   fontSize: 16,

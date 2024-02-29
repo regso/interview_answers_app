@@ -5,6 +5,7 @@ import 'package:interview_answers_app/config/main_theme_colors.dart';
 import 'package:interview_answers_app/features/answer/app/bloc/answer_bloc.dart';
 import 'package:interview_answers_app/features/answer/app/bloc/answer_event.dart';
 import 'package:interview_answers_app/features/answer/app/widgets/answer_widget.dart';
+import 'package:interview_answers_app/features/answer/app/widgets/bottom_widget.dart';
 
 class AnswerScreen extends StatelessWidget {
   final int subjectId;
@@ -31,7 +32,9 @@ class AnswerScreen extends StatelessWidget {
       body: SafeArea(
         child: Container(
           width: double.infinity,
-          padding: const EdgeInsets.all(Constants.screenHorizontalPadding),
+          padding: const EdgeInsets.symmetric(
+            horizontal: Constants.screenHorizontalPadding,
+          ),
           child: BlocProvider<AnswerBloc>(
             create: (BuildContext context) {
               return AnswerBloc()
@@ -43,6 +46,7 @@ class AnswerScreen extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: const BottomBarWidget(),
     );
   }
 }

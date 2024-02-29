@@ -1,3 +1,8 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'question_entity.g.dart';
+
+@JsonSerializable()
 class QuestionEntity {
   final int id;
   final int subjectId;
@@ -14,4 +19,9 @@ class QuestionEntity {
     required this.answer,
     required this.difficulty,
   });
+
+  factory QuestionEntity.fromJson(Map<String, dynamic> json) =>
+      _$QuestionEntityFromJson(json);
+
+  Map<String, dynamic> toJson() => _$QuestionEntityToJson(this);
 }

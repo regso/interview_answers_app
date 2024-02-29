@@ -15,7 +15,7 @@ class QuestionsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Questions',
+          '',
           style: TextStyle(color: MainThemeColors.mainText),
         ),
         centerTitle: true,

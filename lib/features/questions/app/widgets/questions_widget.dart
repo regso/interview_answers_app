@@ -28,14 +28,15 @@ class QuestionsWidget extends StatelessWidget {
           child: Column(
             children: [
               const SearchWidget(),
-              const SearchDelimiterWidget(),
+              SearchDelimiterWidget(count: state.questions.length),
               Expanded(
                 child: ListView(children: [
-                  for (final question in state.questions)
+                  for (int i = 0; i < state.questions.length; i++)
                     QuestionsItemWidget(
-                      id: question.id,
-                      subjectId: question.subjectId,
-                      title: question.title,
+                      number: i + 1,
+                      id: state.questions[i].id,
+                      subjectId: state.questions[i].subjectId,
+                      title: state.questions[i].title,
                       lastDate: 'today',
                     ),
                 ]),

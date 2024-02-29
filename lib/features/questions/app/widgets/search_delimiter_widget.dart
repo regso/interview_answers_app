@@ -3,11 +3,12 @@ import 'package:interview_answers_app/config/labels.dart';
 import 'package:interview_answers_app/config/main_theme_colors.dart';
 
 class SearchDelimiterWidget extends StatelessWidget {
-  const SearchDelimiterWidget({super.key});
+  final int count;
+
+  const SearchDelimiterWidget({super.key, required this.count});
 
   @override
   Widget build(BuildContext context) {
-    const count = 14;
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 20),
       width: double.infinity,
@@ -19,9 +20,9 @@ class SearchDelimiterWidget extends StatelessWidget {
           ),
         ),
       ),
-      child: const Text(
+      child: Text(
         '${Labels.questionsQuestionsFound}: $count',
-        style: TextStyle(
+        style: const TextStyle(
           color: MainThemeColors.mainText,
         ),
       ),

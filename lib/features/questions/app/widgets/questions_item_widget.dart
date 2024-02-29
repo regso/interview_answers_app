@@ -4,6 +4,7 @@ import 'package:interview_answers_app/config/main_theme_colors.dart';
 import 'package:interview_answers_app/features/answer/app/screens/answer_screen.dart';
 
 class QuestionsItemWidget extends StatelessWidget {
+  final int number;
   final int id;
   final int subjectId;
   final String title;
@@ -11,6 +12,7 @@ class QuestionsItemWidget extends StatelessWidget {
 
   const QuestionsItemWidget({
     super.key,
+    required this.number,
     required this.id,
     required this.subjectId,
     required this.title,
@@ -47,10 +49,10 @@ class QuestionsItemWidget extends StatelessWidget {
               width: Constants.cardIconHeight,
               height: Constants.cardIconHeight,
               padding: const EdgeInsets.only(top: 1),
-              child: const Center(
+              child: Center(
                 child: Text(
-                  '12',
-                  style: TextStyle(
+                  number.toString(),
+                  style: const TextStyle(
                     color: MainThemeColors.secondaryText,
                     fontSize: 18,
                     fontWeight: FontWeight.bold,

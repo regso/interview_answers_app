@@ -111,8 +111,8 @@ class _SearchWidgetState extends State<SearchWidget> {
 
   void _filterQuestions(QuestionsFilterDto questionsFilter) async {
     final filteredQuestionIds = await compute((
-        QuestionsFilterDto questionsFilter,
-        ) async {
+      QuestionsFilterDto questionsFilter,
+    ) async {
       final findQuestionIds = FindQuestionIdsUseCase();
       return await findQuestionIds(questionsFilter: questionsFilter);
     }, questionsFilter);

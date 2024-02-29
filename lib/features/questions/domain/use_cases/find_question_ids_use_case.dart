@@ -4,7 +4,6 @@ import 'package:interview_answers_app/features/questions/domain/dto/questions_fi
 
 class FindQuestionIdsUseCase {
   Future<List<int>> call({required QuestionsFilterDto questionsFilter}) async {
-
     log(questionsFilter.filter);
     log(questionsFilter.questions.toString());
 

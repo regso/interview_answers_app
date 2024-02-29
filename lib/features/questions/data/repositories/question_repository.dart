@@ -10,11 +10,9 @@ class QuestionRepository implements AbstractQuestionRepository {
   @override
   Future<List<QuestionEntity>> findQuestions({
     required int subjectId,
-    required int questionId,
   }) async {
     final items = await remoteQuestionDataSource.findQuestions(
       subjectId: subjectId,
-      questionId: questionId,
     );
     return items
         .map(

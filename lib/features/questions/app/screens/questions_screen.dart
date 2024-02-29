@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:interview_answers_app/config/constants.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:interview_answers_app/config/main_theme_colors.dart';
+import 'package:interview_answers_app/features/questions/app/bloc/questions_bloc.dart';
+import 'package:interview_answers_app/features/questions/app/bloc/questions_event.dart';
 import 'package:interview_answers_app/features/questions/app/widgets/questions_widget.dart';
-import 'package:interview_answers_app/features/questions/app/widgets/search_delimiter_widget.dart';
-import 'package:interview_answers_app/features/questions/app/widgets/search_widget.dart';
 
 class QuestionsScreen extends StatelessWidget {
   const QuestionsScreen({super.key});
@@ -26,15 +26,11 @@ class QuestionsScreen extends StatelessWidget {
         ),
       ),
       body: SafeArea(
-        child: Container(
-          padding: const EdgeInsets.all(Constants.screenHorizontalPadding),
-          child: const Column(
-            children: [
-              SearchWidget(),
-              SearchDelimiterWidget(),
-              QuestionsWidget(),
-            ],
-          ),
+        child: BlocProvider<QuestionsBloc>(
+          create: (BuildContext context) {
+            return QuestionsBloc()..add(const LoadQuestionsEvent(subjectId: 1));
+          },
+          child: const QuestionsWidget(),
         ),
       ),
     );

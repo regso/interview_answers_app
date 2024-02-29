@@ -14,7 +14,6 @@ class QuestionsBloc extends Bloc<QuestionsEvent, QuestionsState> {
       emit(const LoadingQuestionsState());
       final questions = await sl<FindQuestionsUseCase>()(
         subjectId: event.subjectId,
-        questionId: event.questionId,
       );
       emit(LoadedQuestionsState(questions: questions));
     } catch (_) {

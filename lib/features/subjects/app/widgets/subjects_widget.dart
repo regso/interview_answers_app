@@ -11,34 +11,34 @@ class SubjectsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SubjectsBloc, SubjectsState>(
-        builder: (BuildContext context, SubjectsState state) {
-          if (state is InitSubjectsState) {
-            return Container();
-          }
+      builder: (BuildContext context, SubjectsState state) {
+        if (state is InitSubjectsState) {
+          return Container();
+        }
 
-          if (state is LoadingSubjectsState) {
-            return const CircularProgressIndicator();
-          }
+        if (state is LoadingSubjectsState) {
+          return const CircularProgressIndicator();
+        }
 
-          if (state is LoadedSubjectsState) {
-            return ListView(
-              padding: const EdgeInsets.all(Constants.screenHorizontalPadding),
-              children: [
-                for (final subject in state.subjects) ...[
-                  SubjectsItemWidget(
-                    title: subject.title,
-                    icon: subject.icon,
-                    percent: 10,
-                    lastDate: 'today',
-                  ),
-                  const SizedBox(height: Constants.screenHorizontalPadding),
-                ],
+        if (state is LoadedSubjectsState) {
+          return ListView(
+            padding: const EdgeInsets.all(Constants.screenHorizontalPadding),
+            children: [
+              for (final subject in state.subjects) ...[
+                SubjectsItemWidget(
+                  title: subject.title,
+                  icon: subject.icon,
+                  percent: 10,
+                  lastDate: 'today',
+                ),
+                const SizedBox(height: Constants.screenHorizontalPadding),
               ],
-            );
-          }
+            ],
+          );
+        }
 
-          return const Text('Error.');
-        },
+        return const Text('Error.');
+      },
     );
   }
 }

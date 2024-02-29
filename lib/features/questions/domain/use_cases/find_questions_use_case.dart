@@ -8,10 +8,8 @@ class FindQuestionsUseCase {
 
   Future<List<QuestionEntity>> call({
     required int subjectId,
-    required int questionId,
   }) =>
       questionRepository.findQuestions(
         subjectId: subjectId,
-        questionId: questionId,
       );
 }

@@ -8,11 +8,10 @@ class RemoteQuestionDataSource {
 
   Future<List<Map<String, dynamic>>> findQuestions({
     required int subjectId,
-    required int questionId,
   }) async {
     final response = await dio.get(
-      '${Constants.apiGetSubjectsUrl}/$subjectId/'
-      '${Constants.apiGetQuestionsUrl}/$questionId',
+      '${Constants.apiGetSubjectsUrl}/$subjectId'
+      '${Constants.apiGetQuestionsUrl}',
     );
     return List<Map<String, dynamic>>.from(response.data);
   }

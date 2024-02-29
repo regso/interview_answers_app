@@ -1,34 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:interview_answers_app/config/constants.dart';
+import 'package:interview_answers_app/features/questions/app/bloc/questions_bloc.dart';
+import 'package:interview_answers_app/features/questions/app/bloc/questions_state.dart';
 import 'package:interview_answers_app/features/questions/app/widgets/questions_item_widget.dart';
+import 'package:interview_answers_app/features/questions/app/widgets/search_delimiter_widget.dart';
+import 'package:interview_answers_app/features/questions/app/widgets/search_widget.dart';
 
 class QuestionsWidget extends StatelessWidget {
-  static const questionsData = [
-    {
-      'title': 'Description',
-      'lastDate': 'today',
-    },
-    {
-      'title': 'Lifecycle',
-      'lastDate': '15.01.2024',
-    },
-    {
-      'title': 'Render',
-      'lastDate': 'yesterday',
-    },
-  ];
-
   const QuestionsWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView(children: [
-        for (final q in questionsData)
-          QuestionsItemWidget(
-            title: q['title']!,
-            lastDate: q['lastDate']!,
+    return BlocBuilder<QuestionsBloc, QuestionsState>(
+        builder: (BuildContext context, QuestionsState state) {
+      if (state is InitQuestionsState) {
+        return Container();
+      }
+
+      if (state is LoadingQuestionsState) {
+        return const Center(child: CircularProgressIndicator());
+      }
+
+      if (state is LoadedQuestionsState) {
+        return Container(
+          padding: const EdgeInsets.all(Constants.screenHorizontalPadding),
+          child: Column(
+            children: [
+              const SearchWidget(),
+              const SearchDelimiterWidget(),
+              Expanded(
+                child: ListView(children: [
+                  for (final question in state.questions)
+                    QuestionsItemWidget(
+                      title: question.title,
+                      lastDate: 'today',
+                    ),
+                ]),
+              ),
+            ],
           ),
-      ]),
-    );
+        );
+      }
+
+      return const Text('Error.');
+    });
   }
 }

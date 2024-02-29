@@ -13,6 +13,7 @@ class Constants {
 
   static const String apiBaseUrl = 'http://10.0.2.2:8080';
   static const String apiGetSubjectsUrl = '/subjects';
+  static const String apiGetQuestionsUrl = '/questions';
 
   static const String httpAcceptLanguageHeader = 'en-US,en;q=0.9,ru;q=0.8';
   static const String httpUserAgentHeader =

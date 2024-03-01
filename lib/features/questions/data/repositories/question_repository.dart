@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:interview_answers_app/features/questions/data/data_sources/remote_question_data_source.dart';
 import 'package:interview_answers_app/features/questions/domain/dto/questions_filter_dto.dart';
 import 'package:interview_answers_app/features/questions/domain/entities/question_entity.dart';
@@ -40,12 +41,17 @@ class QuestionRepository implements AbstractQuestionRepository {
     final questions = await sl<FindQuestionsUseCase>()(
       subjectId: subjectId,
     );
-    final filteredQuestionIds = await sl<GetQuestionIdsByFilterUseCase>()(
-      questionsFilter: QuestionsFilterDto(
-        filter: filter,
-        questions: questions,
-      ),
+    final questionsFilter = QuestionsFilterDto(
+      filter: filter,
+      questions: questions,
     );
+    final filteredQuestionIds = await compute((
+      QuestionsFilterDto questionsFilter,
+    ) async {
+      final findQuestionIds = GetQuestionIdsByFilterUseCase();
+      return await findQuestionIds(questionsFilter: questionsFilter);
+    }, questionsFilter);
+
     return questions
         .where(
           (final question) => filteredQuestionIds.contains(

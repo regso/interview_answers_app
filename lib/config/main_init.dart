@@ -3,7 +3,9 @@ import 'package:interview_answers_app/features/answer/domain/use_cases/get_quest
 import 'package:interview_answers_app/features/questions/data/data_sources/remote_question_data_source.dart';
 import 'package:interview_answers_app/features/questions/data/repositories/question_repository.dart';
 import 'package:interview_answers_app/features/questions/domain/repositories/abstract_question_repository.dart';
+import 'package:interview_answers_app/features/questions/domain/use_cases/find_questions_by_filter_use_case.dart';
 import 'package:interview_answers_app/features/questions/domain/use_cases/find_questions_use_case.dart';
+import 'package:interview_answers_app/features/questions/domain/use_cases/get_question_ids_by_filter_use_case.dart';
 import 'package:interview_answers_app/features/subjects/data/data_sources/local_subject_icon_data_source.dart';
 import 'package:interview_answers_app/features/subjects/data/data_sources/remote_subject_data_source.dart';
 import 'package:interview_answers_app/features/subjects/data/repositories/subject_repository.dart';
@@ -46,6 +48,12 @@ void mainInit() {
   );
   sl.registerLazySingleton(
     () => FindQuestionsUseCase(questionRepository: sl()),
+  );
+  sl.registerLazySingleton(
+    () => FindQuestionsByFilterUseCase(questionRepository: sl()),
+  );
+  sl.registerLazySingleton(
+    () => GetQuestionIdsByFilterUseCase(),
   );
   sl.registerLazySingleton(
     () => GetQuestionUseCase(questionRepository: sl()),

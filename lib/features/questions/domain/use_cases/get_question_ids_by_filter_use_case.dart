@@ -1,6 +1,6 @@
 import 'package:interview_answers_app/features/questions/domain/dto/questions_filter_dto.dart';
 
-class FindQuestionIdsUseCase {
+class GetQuestionIdsByFilterUseCase {
   Future<List<int>> call({required QuestionsFilterDto questionsFilter}) async {
     List<int> filteredIds = [];
     for (final question in questionsFilter.questions) {

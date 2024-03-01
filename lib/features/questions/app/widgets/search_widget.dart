@@ -97,7 +97,7 @@ class _SearchWidgetState extends State<SearchWidget> {
               width: Constants.cardIconHeight,
               height: Constants.cardIconHeight,
               child: const Icon(
-                Icons.search_sharp,
+                Icons.search_outlined,
                 color: MainThemeColors.mainBackground,
                 size: 28,
               ),

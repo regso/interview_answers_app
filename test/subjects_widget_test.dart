@@ -19,7 +19,6 @@ const subjects = [
 
 void main() {
   testWidgets('Subjects widget test.', (widgetTester) async {
-    // Repository.
     final subjectRepository = MockSubjectRepository();
     when(() => subjectRepository.findSubjects()).thenAnswer(
       (_) async => subjects,
@@ -35,8 +34,7 @@ void main() {
         home: Scaffold(
           body: BlocProvider<SubjectsBloc>(
             create: (BuildContext context) {
-              final bloc = SubjectsBloc()..add(const LoadSubjectsEvent());
-              return bloc;
+              return SubjectsBloc()..add(const LoadSubjectsEvent());
             },
             child: const SubjectsWidget(),
           ),

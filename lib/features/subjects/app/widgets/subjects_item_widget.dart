@@ -54,7 +54,7 @@ class SubjectsItemWidget extends StatelessWidget {
             SizedBox(
               width: Constants.cardIconHeight,
               height: Constants.cardIconHeight,
-              child: SvgPicture.string(icon),
+              child: icon.isNotEmpty ? SvgPicture.string(icon) : Container(),
             ),
             const SizedBox(width: Constants.screenHorizontalPadding),
             Expanded(

@@ -30,7 +30,7 @@ const questions = [
 ];
 
 void main() {
-  testWidgets('Questions widget test.', (widgetTester) async {
+  testWidgets('Filter questions positive widget test.', (widgetTester) async {
     final questionRepository = MockQuestionRepository();
     when(
       () => questionRepository.findQuestions(subjectId: subjectId),

@@ -9,3 +9,13 @@ class LoadQuestionsEvent extends QuestionsEvent {
     required this.subjectId,
   });
 }
+
+class FilterQuestionsEvent extends QuestionsEvent {
+  final int subjectId;
+  final String filter;
+
+  const FilterQuestionsEvent({
+    required this.subjectId,
+    required this.filter,
+  });
+}

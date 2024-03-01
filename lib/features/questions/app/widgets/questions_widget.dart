@@ -27,7 +27,7 @@ class QuestionsWidget extends StatelessWidget {
           padding: const EdgeInsets.all(Constants.screenHorizontalPadding),
           child: Column(
             children: [
-              SearchWidget(questions: state.questions),
+              SearchWidget(subjectId: state.subjectId),
               SearchDelimiterWidget(count: state.questions.length),
               Expanded(
                 child: ListView(children: [

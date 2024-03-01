@@ -13,9 +13,11 @@ class LoadingQuestionsState extends QuestionsState {
 }
 
 class LoadedQuestionsState extends QuestionsState {
+  final int subjectId;
   final List<QuestionEntity> questions;
 
   const LoadedQuestionsState({
+    required this.subjectId,
     required this.questions,
   });
 }

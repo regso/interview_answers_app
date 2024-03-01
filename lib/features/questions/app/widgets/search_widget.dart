@@ -1,17 +1,14 @@
-import 'dart:developer';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:interview_answers_app/config/constants.dart';
 import 'package:interview_answers_app/config/main_theme_colors.dart';
-import 'package:interview_answers_app/features/questions/domain/dto/questions_filter_dto.dart';
-import 'package:interview_answers_app/features/questions/domain/entities/question_entity.dart';
-import 'package:interview_answers_app/features/questions/domain/use_cases/find_question_ids_use_case.dart';
+import 'package:interview_answers_app/features/questions/app/bloc/questions_bloc.dart';
+import 'package:interview_answers_app/features/questions/app/bloc/questions_event.dart';
 
 class SearchWidget extends StatefulWidget {
-  final List<QuestionEntity> questions;
+  final int subjectId;
 
-  const SearchWidget({super.key, required this.questions});
+  const SearchWidget({super.key, required this.subjectId});
 
   @override
   State<SearchWidget> createState() => _SearchWidgetState();
@@ -22,6 +19,8 @@ class _SearchWidgetState extends State<SearchWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final questionsBloc = BlocProvider.of<QuestionsBloc>(context);
+
     return Container(
       height: 90,
       padding: const EdgeInsets.symmetric(vertical: 20),
@@ -75,10 +74,10 @@ class _SearchWidgetState extends State<SearchWidget> {
           ),
           const SizedBox(width: Constants.screenHorizontalPadding),
           InkWell(
-            onTap: () {
-              _filterQuestions(QuestionsFilterDto(
+            onTap: () async {
+              questionsBloc.add(FilterQuestionsEvent(
+                subjectId: widget.subjectId,
                 filter: _searchTextController.text,
-                questions: widget.questions,
               ));
             },
             borderRadius: const BorderRadius.all(
@@ -107,17 +106,6 @@ class _SearchWidgetState extends State<SearchWidget> {
         ],
       ),
     );
-  }
-
-  void _filterQuestions(QuestionsFilterDto questionsFilter) async {
-    final filteredQuestionIds = await compute((
-      QuestionsFilterDto questionsFilter,
-    ) async {
-      final findQuestionIds = FindQuestionIdsUseCase();
-      return await findQuestionIds(questionsFilter: questionsFilter);
-    }, questionsFilter);
-
-    log('RES = $filteredQuestionIds');
   }
 
   @override

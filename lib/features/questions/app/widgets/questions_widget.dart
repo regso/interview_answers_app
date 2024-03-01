@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:interview_answers_app/config/constants.dart';
+import 'package:interview_answers_app/config/labels.dart';
 import 'package:interview_answers_app/features/questions/app/bloc/questions_bloc.dart';
 import 'package:interview_answers_app/features/questions/app/bloc/questions_state.dart';
 import 'package:interview_answers_app/features/questions/app/widgets/questions_item_widget.dart';
@@ -37,7 +38,7 @@ class QuestionsWidget extends StatelessWidget {
                       id: state.questions[i].id,
                       subjectId: state.questions[i].subjectId,
                       title: state.questions[i].title,
-                      lastDate: 'today',
+                      lastDate: Labels.subjectsToday,
                     ),
                 ]),
               ),
